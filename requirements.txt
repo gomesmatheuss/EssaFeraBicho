@@ -1,0 +1,8 @@
+flet==0.24.1
+flet-contrib==2024.3.6
+flet-core==0.24.1
+flet-runtime==0.24.1
+urllib3==2.2.3
+requests==2.32.3
+websockets==14.1
+python-dotenv==1.0.1

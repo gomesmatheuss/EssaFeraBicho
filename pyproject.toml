@@ -1,0 +1,9 @@
+[tool.fletpack]
+app_name = "Essa Fera Bicho"
+package_name = "com.exemplo.essaferabicho"
+description = "Um app para ver rapidamente o saldo de crypto"
+version = "1.2.0"
+screen_orientation = "portrait"
+dpi = 551
+ppi = 551
+meta_viewport = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
