@@ -1,4 +1,4 @@
-from polosdk import RestClient
+from src.services.poloniex.polosdk import RestClient
 from dotenv import dotenv_values
 
 class Poloniex:
