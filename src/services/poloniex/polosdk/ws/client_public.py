@@ -1,4 +1,4 @@
-from polosdk.ws.client_base import ClientBase
+from src.services.poloniex.polosdk.ws.client_base import ClientBase
 from urllib.parse import urljoin
 
 _default_ws_url = 'wss://ws.poloniex.com/ws/'

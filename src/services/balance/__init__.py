@@ -1,7 +1,7 @@
 import json
-from binance import Binance
-from poloniex import Poloniex
-from balance.coin import Coin
+from src.services.binance import Binance
+from src.services.poloniex import Poloniex
+from src.services.balance.coin import Coin
 from datetime import datetime
 
 class Balance:

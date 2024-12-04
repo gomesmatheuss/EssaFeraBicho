@@ -1,5 +1,5 @@
 import flet as ft
-from balance import Balance
+from src.services.balance import Balance
 
 def main(page: ft.Page):
     page.title = "Essa Fera Bicho - Mobile"

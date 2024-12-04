@@ -1,4 +1,4 @@
-from polosdk.rest.request import Request
+from src.services.poloniex.polosdk.rest.request import Request
 
 
 class Markets:

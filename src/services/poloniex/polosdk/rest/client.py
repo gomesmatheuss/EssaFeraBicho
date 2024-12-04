@@ -1,10 +1,10 @@
-from polosdk.rest.accounts import Accounts
-from polosdk.rest.subaccounts import Subaccounts
-from polosdk.rest.markets import Markets
-from polosdk.rest.request import Request
-from polosdk.rest.orders import Orders
-from polosdk.rest.smartorders import SmartOrders
-from polosdk.rest.wallets import Wallets
+from src.services.poloniex.polosdk.rest.accounts import Accounts
+from src.services.poloniex.polosdk.rest.subaccounts import Subaccounts
+from src.services.poloniex.polosdk.rest.markets import Markets
+from src.services.poloniex.polosdk.rest.request import Request
+from src.services.poloniex.polosdk.rest.orders import Orders
+from src.services.poloniex.polosdk.rest.smartorders import SmartOrders
+from src.services.poloniex.polosdk.rest.wallets import Wallets
 
 
 class Client:
