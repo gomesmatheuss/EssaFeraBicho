@@ -8,9 +8,9 @@ def main(page: ft.Page):
     page.bgcolor = ft.colors.ON_SECONDARY
     page.scroll = ft.ScrollMode.HIDDEN
 
-    page.window.width = 1080
-    page.window.height = 1920
-    page.window.min_width = 720
+    page.window.width = 480
+    page.window.height = 720
+    page.window.min_width = 480 #720
 
     balance = Balance()
 
@@ -18,7 +18,6 @@ def main(page: ft.Page):
     navbar = ft.AppBar(
         title=ft.Column(
             controls=[
-                # Primeira linha centralizada
                 ft.Container(
                     content=ft.Text(
                         "Estimated Values:",
@@ -30,7 +29,6 @@ def main(page: ft.Page):
                     alignment=ft.alignment.center,
                     padding=ft.padding.symmetric(vertical=5),
                 ),
-                # Segunda linha centralizada
                 ft.Container(
                     content=ft.Row(
                         controls=[
@@ -62,7 +60,6 @@ def main(page: ft.Page):
                     alignment=ft.alignment.center,
                     padding=ft.padding.symmetric(vertical=5),
                 ),
-                # Demais linhas alinhadas à esquerda
                 ft.Container(
                     content=ft.Row(
                         controls=[
@@ -192,7 +189,7 @@ def main(page: ft.Page):
             weight=ft.FontWeight.BOLD,
             color=ft.colors.WHITE
         ),
-        bgcolor=ft.colors.BLUE_GREY_600,  # Cor um pouco mais clara para contraste
+        bgcolor=ft.colors.BLUE_GREY_600,
         padding=ft.padding.all(10),
         alignment=ft.alignment.center_left
     )
@@ -208,44 +205,45 @@ def main(page: ft.Page):
                             ft.Text(
                                 f'{i:02d} - {asset.asset}',
                                 expand=1,
-                                # color=ft.colors.WHITE,
                                 no_wrap=True,
-                                overflow=ft.TextOverflow.ELLIPSIS
+                                overflow=ft.TextOverflow.ELLIPSIS,
+                                size=14
                             ),
                             ft.Text(
                                 f'{asset.amount:.08f}',
                                 expand=1,
-                                # color=ft.colors.WHITE,
                                 no_wrap=True,
                                 overflow=ft.TextOverflow.ELLIPSIS,
-                                text_align=ft.TextAlign.RIGHT
+                                text_align=ft.TextAlign.RIGHT,
+                                size=14
                             ),
                             # ft.Text(
-                            #     f'{asset.btc_value:.08f}',
+                            #     f'{asset.btc_value:.08f}' if asset.btc_value > 0 else "-",
                             #     expand=1,
-                            #     # color=ft.colors.WHITE,
                             #     no_wrap=True,
                             #     overflow=ft.TextOverflow.ELLIPSIS,
-                            #     text_align=ft.TextAlign.RIGHT
+                            #     text_align=ft.TextAlign.RIGHT,
+                            #     size=14
                             # ),
                             ft.Text(
-                                f'{asset.uss_value:.08f}',
+                                f'{asset.uss_value:.02f}' if asset.uss_value > 0 else "-",
                                 expand=1,
-                                # color=ft.colors.WHITE,
                                 no_wrap=True,
                                 overflow=ft.TextOverflow.ELLIPSIS,
-                                text_align=ft.TextAlign.RIGHT
+                                text_align=ft.TextAlign.RIGHT,
+                                size=14
                             ),
                             ft.Text(
-                                asset.get_variation_uss(),
+                                asset.get_variation_uss() if asset.uss_value > 0 else "-",
                                 expand=1,
                                 color=ft.colors.LIGHT_GREEN_ACCENT_700 if asset.get_variation_uss() != "- %" and float(asset.get_variation_uss().replace(" %", "")) >= 0 else ft.colors.RED_500,
                                 no_wrap=True,
                                 overflow=ft.TextOverflow.ELLIPSIS,
-                                text_align=ft.TextAlign.RIGHT
+                                text_align=ft.TextAlign.RIGHT,
+                                size=14
                             )
                         ],
-                        alignment="spaceBetween"  # Espaça os textos uniformemente
+                        alignment="spaceBetween"
                     ),
                     trailing=ft.Icon(ft.icons.ARROW_DROP_DOWN),
                     initially_expanded=False,
