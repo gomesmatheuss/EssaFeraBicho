@@ -24,7 +24,7 @@ class Balance:
 
     def get_initial_values(self):
         try:
-            with open("./files/initial_amount.json", "r") as arq:
+            with open("src/files/initial_amount.json", "r") as arq:
                 values = json.loads(arq.read())
             
             new_values = {}
@@ -96,15 +96,17 @@ class Balance:
             self.coins.append(coin_info)
 
     def get_all_balance(self):
-        binance_balance = Binance().get_balance()
+        binance_balance, bin_last_update = Binance().get_balance()
         binance_prices = Binance().get_prices()
-        poloniex_balance = Poloniex().get_balance()
+        poloniex_balance, pol_last_update = Poloniex().get_balance()
         poloniex_prices = Poloniex().get_prices()
 
         initial_values = self.get_initial_values()
 
         self.btcuss_value = float(binance_prices.get("BTCUSDT"))
         self.ussbrl_value = float(binance_prices.get("USDTBRL"))
+
+        self.last_update = str(datetime.fromtimestamp(bin_last_update)) if bin_last_update < pol_last_update else str(datetime.fromtimestamp(pol_last_update))
 
         self.set_values(binance_balance, binance_prices, "Binance", initial_values)
         self.set_values(poloniex_balance, poloniex_prices, "Poloniex", initial_values)

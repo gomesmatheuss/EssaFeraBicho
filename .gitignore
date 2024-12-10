@@ -161,6 +161,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-
 icon.png
+
+#arquivos temporarios de balance e preço
 files/initial_amount.json
+temp_binance_balance.json
+temp_binance_prices.json
+temp_poloniex_balance.json
+temp_poloniex_prices.json

@@ -47,7 +47,7 @@ def main(page: ft.Page):
                                 color=ft.colors.WHITE,
                             ),
                             ft.Text(
-                                f"| Last update: {balance.last_update[:16]}",
+                                f"| Last update: {balance.last_update[11:19]}",
                                 size=16,
                                 weight=ft.FontWeight.BOLD,
                                 no_wrap=True,
