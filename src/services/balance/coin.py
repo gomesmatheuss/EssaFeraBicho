@@ -22,7 +22,7 @@ class Coin:
     def get_variation_uss(self):
         if self.initial_uss_value:
             return f"{(self.uss_value / self.initial_uss_value) * 100:.02f} %"
-        return "- %"
+        return "-"
 
     def __str__(self):
         return (
