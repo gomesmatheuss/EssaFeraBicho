@@ -1,4 +1,5 @@
 import flet as ft
+from src.services.balance_update import BalanceUpdate
 
 class NavbarTitle(ft.Column):
     def __init__(self):
@@ -26,8 +27,9 @@ class Navbar(ft.AppBar):
             ft.IconButton(
                 icon=ft.icons.REFRESH,
                 tooltip="Recarregar dados",
-                # on_click=load_data,
+                on_click = lambda func: BalanceUpdate(self.page),
                 padding=ft.padding.symmetric(horizontal=20),
-                alignment=ft.alignment.center
+                alignment=ft.alignment.center,
+                visible=False
             )
         ]

@@ -26,7 +26,7 @@ class ItemsExpansion(ft.ExpansionTile):
         self.collapsed_text_color = ft.colors.WHITE
         self.text_color = ft.colors.BLUE
         self.bgcolor = ft.colors.PRIMARY_CONTAINER
-        self.min_tile_height = 2
+        self.min_tile_height = 1
         self.show_trailing_icon = False
         self.title = ft.Row(
             controls = [
