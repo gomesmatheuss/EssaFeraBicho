@@ -27,7 +27,6 @@
     {"asset": "AKITA", "balance": 2134081.19658116, "btc_value": 0.00001762, "uss_value": 0.36287280, "operation": "deposit"},
     {"asset": "XEC", "balance": 5926.00000000, "btc_value": 0.00001114, "uss_value": 0.22942128, "operation": "deposit"},
     {"asset": "EGLD", "balance": 0.00293700, "btc_value": 0.00000832, "uss_value": 0.17136404, "operation": "deposit"},
-    {"asset": "USDT", "balance": 0.17115110, "btc_value": 0.00000831, "uss_value": 0.17115110, "operation": "deposit"},
     {"asset": "NXT", "balance": 49.88557127, "btc_value": 0.00000798, "uss_value": 0.16434307, "operation": "deposit"},
     {"asset": "SXP", "balance": 0.38136388, "btc_value": 0.00000678, "uss_value": 0.13962983, "operation": "deposit"},
     {"asset": "DIA", "balance": 0.34799652, "btc_value": 0.00000675, "uss_value": 0.13901200, "operation": "deposit"},

@@ -53,19 +53,26 @@ class Balance:
             uss_value = amount * float(price)
             btc_value = uss_value / self.btcuss_value
             brl_value = uss_value * self.ussbrl_value
-            return uss_value, btc_value, brl_value
+            return uss_value, btc_value, brl_value, float(price)
 
         if price := (prices.get(symbol2) or prices.get(symbol2.replace("_", ""))):
             btc_value = amount * float(price)
             uss_value = btc_value * self.btcuss_value
             brl_value = uss_value * self.ussbrl_value
-            return uss_value, btc_value, brl_value
+            return uss_value, btc_value, brl_value, float(price)
         
-        return -1, -1, -1
+        if coin == "USDT":
+            price = prices.get("TUSDUSDT") if prices.get("TUSDUSDT") else prices.get("TUSD_USDT")
+            btc_value = amount * float(price)
+            uss_value = amount
+            brl_value = uss_value * self.ussbrl_value
+            return uss_value, btc_value, brl_value, float(price)
+        
+        return -1, -1, -1, -1
 
     def set_values(self, values, prices, exchange, initial_values):
         for asset in values:
-            uss_value, btc_value, brl_value = self.set_btc_value(asset.get("asset"), asset.get("amount"), prices)
+            uss_value, btc_value, brl_value, price = self.set_btc_value(asset.get("asset"), asset.get("amount"), prices)
 
             self.uss_value += uss_value if uss_value > 0 else 0
             self.btc_value += btc_value if btc_value > 0 else 0
@@ -82,11 +89,13 @@ class Balance:
                 amount = asset.get("amount"),
                 uss_value = uss_value,
                 btc_value = btc_value,
+                brl_value = brl_value,
                 pol_amount = asset.get("amount") if exchange.lower() == "poloniex" else 0,
                 bin_amount = asset.get("amount") if exchange.lower() == "binance" else 0,
                 initial_uss_value = initial_values.get(asset.get("asset"), {}).get("uss_value", 0),
                 initial_btc_value = initial_values.get(asset.get("asset"), {}).get("btc_value", 0),
-                initial_amount = initial_values.get(asset.get("asset"), {}).get("balance", 0)
+                initial_amount = initial_values.get(asset.get("asset"), {}).get("balance", 0),
+                price = price
             )
             coin_old = [coin for coin in self.coins if coin.asset == asset.get("asset")]
             if coin_old:

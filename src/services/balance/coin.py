@@ -1,21 +1,24 @@
 class Coin:
     def __init__(self, asset: str, amount: float, uss_value: float, btc_value: float, 
-                 pol_amount: float, bin_amount: float, initial_amount: float, 
-                 initial_uss_value: float, initial_btc_value: float):
+                 brl_value: float, pol_amount: float, bin_amount: float, initial_amount: float, 
+                 initial_uss_value: float, initial_btc_value: float, price: float):
         self.asset = asset
         self.amount = amount
         self.uss_value = uss_value
         self.btc_value = btc_value
+        self.brl_value = brl_value
         self.pol_amount = pol_amount
         self.bin_amount = bin_amount
         self.initial_amount = initial_amount
         self.initial_uss_value = initial_uss_value
         self.initial_btc_value = initial_btc_value
+        self.price = price
 
     def update_values(self, coin):
         self.amount += coin.amount
         self.uss_value += coin.uss_value
         self.btc_value += coin.btc_value
+        self.brl_value += coin.brl_value
         self.pol_amount += coin.pol_amount
         self.bin_amount += coin.bin_amount
 
