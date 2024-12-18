@@ -63,7 +63,7 @@ class Balance:
         
         if coin == "USDT":
             price = prices.get("TUSDUSDT") if prices.get("TUSDUSDT") else prices.get("TUSD_USDT")
-            btc_value = amount * float(price)
+            btc_value = amount / self.btcuss_value
             uss_value = amount
             brl_value = uss_value * self.ussbrl_value
             return uss_value, btc_value, brl_value, float(price)

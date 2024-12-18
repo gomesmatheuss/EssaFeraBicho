@@ -1,5 +1,6 @@
 import flet as ft
 from src.services.balance.coin import Coin
+from src.services.utils import Utils
 
 class ItemsText(ft.Text):
     def __init__(self, text, color=None):
@@ -47,7 +48,7 @@ class ItemsExpansion(ft.ExpansionTile):
         self.title = ft.Row(
             controls = [
                 ItemsText(_asset),
-                ItemsText(_amount),
+                ItemsText(Utils.format_big_numbers(_amount, 8)),
                 ItemsText(_uss_value),
                 ItemsText(_variation, _color)
             ]
@@ -57,9 +58,9 @@ class ItemsExpansion(ft.ExpansionTile):
         del _asset, _amount, _uss_value, _variation, _color
 
     def ItemsListTile(self, asset: Coin):
-        _pol_amount = f'{asset.pol_amount:,.08f}'
-        _bin_amount = f'{asset.bin_amount:,.08f}'
-        _init_amount = f'{asset.initial_amount:,.08f}'
+        _pol_amount = Utils.format_big_numbers(asset.pol_amount, 8)
+        _bin_amount = Utils.format_big_numbers(asset.bin_amount, 8)
+        _init_amount = Utils.format_big_numbers(asset.initial_amount, 8)
         _init_uss = f'{asset.initial_uss_value:,.02f}'
         _init_btc = f'{asset.initial_btc_value:,.08f}'
         _brl_value = f'{asset.brl_value:,.02f}'

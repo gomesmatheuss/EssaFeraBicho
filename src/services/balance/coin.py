@@ -33,10 +33,12 @@ class Coin:
             "amount: " + str(self.amount) + "\n" +
             "uss_value: " + str(self.uss_value) + "\n" +
             "btc_value: " + str(self.btc_value) + "\n" +
+            "brl_value: " + str(self.brl_value) + "\n" +
             "pol_amount: " + str(self.pol_amount) + "\n" +
             "bin_amount: " + str(self.bin_amount) + "\n" +
             "initial_amount: " + str(self.initial_amount) + "\n" +
             "initial_uss_value: " + str(self.initial_uss_value) + "\n" +
-            "initial_btc_value: " + str(self.initial_btc_value)
+            "initial_btc_value: " + str(self.initial_btc_value) + "\n" +
+            "price" + str(self.price)
         )
         
