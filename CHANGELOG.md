@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0
+
+Features:
+
+- standardized names of Poloniex price pairs
+- added calculation for USDT/coin pair (e.g. USDT/BRL)
+
+Fix:
+
+- fixed float conversion in Utils format_big_number
+
 ## 1.1.2
 
 Features:

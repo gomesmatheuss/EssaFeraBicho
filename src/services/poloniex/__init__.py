@@ -70,7 +70,7 @@ class Poloniex:
             return new_prices
 
         prices = self.polo.markets().get_prices()
-        new_prices = {price.get("symbol"): price.get("price") for price in prices}
+        new_prices = {price.get("symbol").replace("_", ""): price.get("price") for price in prices}
 
         self.create_temp_arq(temp_file_path, new_prices)
 

@@ -1,4 +1,5 @@
 import flet as ft
+from src.services.utils import CustomTextField
 
 class ExchangeText(ft.Text):
     def __init__(self, text):
@@ -41,11 +42,16 @@ class OverviewContent:
                 f"R$ {balance.brl_value:,.02f}"
             ]),
             ft.Divider(),
-            Exchange([
-                f"BTC {balance.btcuss_value:,.02f} US$",
-                f"Dólar R$ {balance.ussbrl_value:,.02f}",
-                f"Updated: {balance.last_update[11:19]}"
-            ]),
+            ft.Row(
+                alignment = ft.MainAxisAlignment.START,
+                controls = [
+                    CustomTextField("BTC - USD", f"{balance.btcuss_value:,.02f}"),
+                    CustomTextField("USD", f"{balance.ussbrl_value:,.02f}"),
+                    CustomTextField("", ""),
+                    CustomTextField("", ""),
+                    CustomTextField("Updated", f"{balance.last_update[11:19]}")
+                ]
+            ),
             ft.Divider()
         ]
 

@@ -46,23 +46,31 @@ class Balance:
             return {}
 
     def set_btc_value(self, coin, amount, prices):
-        symbol = coin + "_USDT"
-        symbol2 = coin + "_BTC"
+        symbol = coin + "USDT"
+        symbol2 = coin + "BTC"
+        symbol3 = "USDT" + coin
+        symbol4 = "BTC" + coin
 
-        if price := (prices.get(symbol) or prices.get(symbol.replace("_", ""))):
+        if price := (prices.get(symbol)):
             uss_value = amount * float(price)
             btc_value = uss_value / self.btcuss_value
             brl_value = uss_value * self.ussbrl_value
             return uss_value, btc_value, brl_value, float(price)
 
-        if price := (prices.get(symbol2) or prices.get(symbol2.replace("_", ""))):
+        if price := (prices.get(symbol2)):
             btc_value = amount * float(price)
             uss_value = btc_value * self.btcuss_value
             brl_value = uss_value * self.ussbrl_value
             return uss_value, btc_value, brl_value, float(price)
         
+        if price := (prices.get(symbol3)):
+            btc_value = (amount / float(price)) / self.btcuss_value
+            uss_value = btc_value * self.btcuss_value
+            brl_value = uss_value * self.ussbrl_value
+            return uss_value, btc_value, brl_value, float(price)
+
         if coin == "USDT":
-            price = prices.get("TUSDUSDT") if prices.get("TUSDUSDT") else prices.get("TUSD_USDT")
+            price = prices.get("TUSDUSDT")
             btc_value = amount / self.btcuss_value
             uss_value = amount
             brl_value = uss_value * self.ussbrl_value
