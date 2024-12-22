@@ -7,7 +7,6 @@ def main(page: ft.Page):
     page.theme = ft.Theme(color_scheme_seed=ft.colors.GREEN)
     page.theme_mode = ft.ThemeMode.DARK
     page.bgcolor = ft.colors.ON_SECONDARY
-    page.scroll = ft.ScrollMode.HIDDEN
 
     page.window.width = 1080 #480
     page.window.height = 900 #720

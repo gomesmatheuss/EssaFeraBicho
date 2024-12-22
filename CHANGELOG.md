@@ -4,6 +4,18 @@
 
 Features:
 
+- remove global scrolling and added only where necessary
+- added btc value variation in coin info
+- added Tabs to view the currencies of each exchange separately (still under construction)
+
+Fix:
+
+- fix the version name of the last commit in the CHANGELOG.md file
+
+## 1.1.3
+
+Features:
+
 - standardized names of Poloniex price pairs
 - added calculation for USDT/coin pair (e.g. USDT/BRL)
 

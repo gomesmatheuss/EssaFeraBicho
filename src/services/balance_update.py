@@ -8,6 +8,6 @@ class BalanceUpdate:
         balance = Balance()
 
         page.overview.controls = OverviewContent.content(balance)
-        page.items_list.controls = ItemsListContent.content(balance.coins)
+        page.customtabs.update_tabs(balance.coins)
 
         page.update()

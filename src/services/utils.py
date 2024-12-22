@@ -15,7 +15,7 @@ class CustomTextField(ft.TextField):
     def __init__(self, label, text):
         super().__init__()
         self.label = label
-        self.label_style = ft.TextStyle(color=ft.colors.WHITE70, overflow=ft.TextOverflow.ELLIPSIS, size=17)
+        self.label_style = ft.TextStyle(color=ft.colors.WHITE60, overflow=ft.TextOverflow.ELLIPSIS, size=17)
         self.value = text
         self.disabled = True
         self.border = ft.InputBorder.NONE

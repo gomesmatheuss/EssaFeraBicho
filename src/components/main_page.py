@@ -2,7 +2,7 @@ import flet as ft
 from src.services.balance import Balance
 from src.components.overview import Overview
 from src.components.navbar import Navbar
-from src.components.items_list import ItemsList
+from src.components.tabs_main_page import CustomTabs
 
 class MainPage:
     def __init__(self, page: ft.Page):
@@ -12,12 +12,12 @@ class MainPage:
         balance = Balance()
         navbar = Navbar()
         page.overview = Overview(balance)
-        page.items_list = ItemsList(balance.coins)
+        page.customtabs = CustomTabs(balance.coins)
         
         page.add(
             navbar,
             page.overview,
-            page.items_list
+            page.customtabs
         )
 
         navbar.actions[0].visible = True

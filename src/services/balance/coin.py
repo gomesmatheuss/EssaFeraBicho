@@ -26,6 +26,11 @@ class Coin:
         if self.initial_uss_value:
             return f"{(self.uss_value / self.initial_uss_value) * 100:.02f} %"
         return "-"
+    
+    def get_variation_btc(self):
+        if self.initial_btc_value:
+            return f"{(self.btc_value / self.initial_btc_value) * 100:.02f} %"
+        return "-"
 
     def __str__(self):
         return (

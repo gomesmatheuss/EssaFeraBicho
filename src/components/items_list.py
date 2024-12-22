@@ -65,6 +65,7 @@ class ItemsExpansion(ft.ExpansionTile):
         _init_btc = f'{asset.initial_btc_value:,.08f}'
         _brl_value = f'{asset.brl_value:,.02f}'
         _price = f'{asset.price:,.02f}'
+        _btc_variation = asset.get_variation_btc()
 
         return [
             ft.ListTile(
@@ -85,19 +86,30 @@ class ItemsExpansion(ft.ExpansionTile):
                         ItemsTextField("Binance", _bin_amount),
                         ItemsTextField("Price", _price),
                         ItemsTextField("R$", _brl_value),
-                        ItemsTextField("", "")
+                        ItemsTextField("BTC Value Variation", _btc_variation)
                     ]
                 )
             )
+            # ft.ListTile(
+            #     title=ft.Row(
+            #         controls = [
+            #             ItemsTextField("What if BTC", -),
+            #             ItemsTextField("BTC Value", -),
+            #         ]
+            #     )
+            # )
         ]
 
 class ItemsListContent:
     @staticmethod
     def content(coins):
-        return [
-            ItemsExpansion(asset, count)
-            for count, asset in enumerate(coins, start = 1)
-        ]
+        return [ft.ListView(
+            expand=1,
+            controls=[
+                ItemsExpansion(asset, count)
+                for count, asset in enumerate(coins, start = 1)
+            ]
+        )]
 
 class ItemsList(ft.Column):
     def __init__(self, coins):
