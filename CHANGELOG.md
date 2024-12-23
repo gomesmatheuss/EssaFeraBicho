@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+
+Fix:
+
+- fixing overview that was committed without checking correct file
+
 ## 1.3.0
 
 Features:

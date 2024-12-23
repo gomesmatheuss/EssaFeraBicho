@@ -22,8 +22,9 @@ class Overview(ft.ExpansionTile):
         )
         self.controls = [
             ft.ListTile(
-                min_vertical_padding=1,
+                min_vertical_padding=2,
                 min_height=1,
+                dense=True,
                 trailing=ft.Icon(None),
                 title=ft.Row(
                     controls = [
@@ -35,8 +36,9 @@ class Overview(ft.ExpansionTile):
                 )
             ),
             ft.ListTile(
-                # min_vertical_padding=1,
-                # min_height=1,
+                min_vertical_padding=2,
+                min_height=1,
+                dense=True,
                 trailing=ft.Icon(None),
                 title=ft.Row(
                     controls = [
@@ -48,16 +50,18 @@ class Overview(ft.ExpansionTile):
                 )
             ),
             ft.ListTile(
-                # min_vertical_padding=1,
-                # min_height=1,
+                min_vertical_padding=2,
+                min_height=1,
+                dense=True,
                 trailing=ft.Icon(None),
                 title=ft.Row(
                     controls = [
-                        CustomTextField("BTC - USD", f"{balance.binance_btc_value:,.08f}"),
-                        CustomTextField("Binance - USD", f"{balance.binance_uss_value:,.02f}"),
-                        CustomTextField("Binance - R$", f"{balance.binance_brl_value:,.02f}"),
+                        CustomTextField("BTC - USD", f"{balance.btcuss_value:,.02f}"),
+                        CustomTextField("USD - BRL", f"{balance.ussbrl_value:,.02f}"),
+                        CustomTextField("", ""),
                         CustomTextField("", "")
                     ]
                 )
-            )
+            ),
+            ft.Divider(height=10, color=ft.colors.ON_SECONDARY)
         ]

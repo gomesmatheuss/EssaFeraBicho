@@ -22,7 +22,7 @@ class CustomTextField(ft.TextField):
         self.color = ft.colors.WHITE
         self.border_color = ft.colors.WHITE
         self.height = 36
-        self.content_padding = ft.padding.symmetric(vertical=4, horizontal=1)
+        self.content_padding = ft.padding.only(top=2, bottom=5, left=0, right=2)
         self.expand = True
         self.multiline = False
         self.max_lines = 1
