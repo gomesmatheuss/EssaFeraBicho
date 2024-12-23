@@ -1,16 +1,26 @@
 # Changelog
 
+## 1.3.2
+
+Features:
+
+- improved position of the home page button
+- added list of coins in the Poloniex and Binance tabs (still needs some tweaking)
+
+
 ## 1.3.1
 
 Fix:
 
 - fixing overview that was committed without checking correct file
 
+
 ## 1.3.0
 
 Features:
 
 - overview restructing
+
 
 ## 1.2.0
 
@@ -24,6 +34,7 @@ Fix:
 
 - fix the version name of the last commit in the CHANGELOG.md file
 
+
 ## 1.1.3
 
 Features:
@@ -34,6 +45,7 @@ Features:
 Fix:
 
 - fixed float conversion in Utils format_big_number
+
 
 ## 1.1.2
 

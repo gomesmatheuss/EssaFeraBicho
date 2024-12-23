@@ -19,6 +19,8 @@ class Balance:
         self.ussbrl_value = 0
         self.last_update = str(datetime.now())
         self.coins = []
+        self.poloniex_coins = []
+        self.binance_coins = []
 
         self.get_all_balance()
 
@@ -105,6 +107,13 @@ class Balance:
                 initial_amount = initial_values.get(asset.get("asset"), {}).get("balance", 0),
                 price = price
             )
+
+            if exchange.lower() == "poloniex":
+                self.poloniex_coins.append(coin_info)
+
+            if exchange.lower() == "binance":
+                self.binance_coins.append(coin_info)
+
             coin_old = [coin for coin in self.coins if coin.asset == asset.get("asset")]
             if coin_old:
                 coin_info.update_values(coin_old[0])
@@ -131,4 +140,14 @@ class Balance:
         sorted_coins = sorted(self.coins, key=lambda coin: coin.uss_value, reverse=True)
         del self.coins
         self.coins = sorted_coins
+        del sorted_coins
+
+        sorted_coins = sorted(self.binance_coins, key=lambda coin: coin.uss_value, reverse=True)
+        del self.binance_coins
+        self.binance_coins = sorted_coins
+        del sorted_coins
+
+        sorted_coins = sorted(self.poloniex_coins, key=lambda coin: coin.uss_value, reverse=True)
+        del self.poloniex_coins
+        self.poloniex_coins = sorted_coins
         del sorted_coins

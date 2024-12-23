@@ -14,7 +14,7 @@ class LoadButton(ft.ElevatedButton):
 class InitialPage(ft.Container):
     def __init__(self):
         super().__init__()
-        self.alignment = ft.alignment.center
-        self.height = 100
+        self.alignment = ft.alignment.top_center
+        self.padding = ft.padding.only(top=50)
         self.expand = True
         self.content = LoadButton()

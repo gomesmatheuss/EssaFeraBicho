@@ -12,7 +12,7 @@ class MainPage:
         balance = Balance()
         navbar = Navbar()
         page.overview = Overview(balance)
-        page.customtabs = CustomTabs(balance.coins)
+        page.customtabs = CustomTabs(balance)
         
         page.add(
             navbar,
