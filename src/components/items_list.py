@@ -38,7 +38,6 @@ class ItemsExpansion(ft.ExpansionTile):
         _variation = asset.get_variation_uss() if asset.uss_value > 0 else "-"
         _color = ft.colors.LIGHT_GREEN_ACCENT_700 if asset.get_variation_uss() != "-" and float(asset.get_variation_uss().replace(" %", "")) >= 0 else ft.colors.RED_500
 
-        self.trailing = ft.Icon(ft.icons.ARROW_DROP_DOWN)
         self.initially_expanded = False
         self.collapsed_text_color = ft.colors.WHITE
         self.text_color = ft.colors.BLUE_200
