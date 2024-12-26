@@ -5,8 +5,8 @@ class Overview(ft.ExpansionTile):
     def __init__(self, balance):
         super().__init__("")
         self.initially_expanded = False
-        self.collapsed_text_color = ft.colors.WHITE
-        self.text_color = ft.colors.BLUE_200
+        self.collapsed_text_color = ft.Colors.WHITE
+        self.text_color = ft.Colors.BLUE_200
         self.min_tile_height = 1
         self.update_content(balance)
 
@@ -22,11 +22,11 @@ class Overview(ft.ExpansionTile):
         )
         self.controls = [
             ft.ListTile(
-                min_vertical_padding=2,
-                min_height=1,
-                dense=True,
-                trailing=ft.Icon(None),
-                title=ft.Row(
+                min_vertical_padding = 2,
+                min_height = 1,
+                dense = True,
+                trailing = ft.Icon(None),
+                title = ft.Row(
                     controls = [
                         CustomTextField("Poloniex - BTC", f"{balance.poloniex_btc_value:,.08f}"),
                         CustomTextField("Poloniex - USD", f"{balance.poloniex_uss_value:,.02f}"),
@@ -36,11 +36,11 @@ class Overview(ft.ExpansionTile):
                 )
             ),
             ft.ListTile(
-                min_vertical_padding=2,
-                min_height=1,
-                dense=True,
-                trailing=ft.Icon(None),
-                title=ft.Row(
+                min_vertical_padding = 2,
+                min_height = 1,
+                dense = True,
+                trailing = ft.Icon(None),
+                title = ft.Row(
                     controls = [
                         CustomTextField("Binance - BTC", f"{balance.binance_btc_value:,.08f}"),
                         CustomTextField("Binance - USD", f"{balance.binance_uss_value:,.02f}"),
@@ -50,11 +50,11 @@ class Overview(ft.ExpansionTile):
                 )
             ),
             ft.ListTile(
-                min_vertical_padding=2,
-                min_height=1,
-                dense=True,
-                trailing=ft.Icon(None),
-                title=ft.Row(
+                min_vertical_padding = 2,
+                min_height = 1,
+                dense = True,
+                trailing = ft.Icon(None),
+                title = ft.Row(
                     controls = [
                         CustomTextField("BTC - USD", f"{balance.btcuss_value:,.02f}"),
                         CustomTextField("USD - BRL", f"{balance.ussbrl_value:,.02f}"),
@@ -63,5 +63,5 @@ class Overview(ft.ExpansionTile):
                     ]
                 )
             ),
-            ft.Divider(height=10, color=ft.colors.ON_SECONDARY)
+            ft.Divider(height=10, color=ft.Colors.ON_SECONDARY)
         ]

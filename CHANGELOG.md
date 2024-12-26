@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0
+
+Features:
+
+- code adjustment to meet the standards of the new version of Flet 0.25.2
+
+
 ## 1.3.2
 
 Features:

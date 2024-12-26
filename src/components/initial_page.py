@@ -7,8 +7,8 @@ class LoadButton(ft.ElevatedButton):
         self.text = "Load"
         self.on_click = lambda f: MainPage(self.page)
         self.style = ft.ButtonStyle(
-            bgcolor=ft.colors.BLUE,
-            color=ft.colors.WHITE
+            bgcolor = ft.Colors.BLUE,
+            color = ft.Colors.WHITE
         )
 
 class InitialPage(ft.Container):

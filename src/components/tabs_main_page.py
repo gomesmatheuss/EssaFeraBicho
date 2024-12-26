@@ -16,18 +16,18 @@ class CustomTabs(ft.Tabs):
     def load_content(self, balance):
         return [
             ft.Tab(
-                text="All",
-                icon=ft.icons.ATTACH_MONEY_OUTLINED,
-                content=ItemsList(balance.coins)
+                text = "All",
+                icon = ft.Icons.ATTACH_MONEY_OUTLINED,
+                content = ItemsList(balance.coins)
             ),
             ft.Tab(
-                text="Binance",
-                icon=ft.icons.ACCOUNT_BALANCE,
-                content=ItemsList(balance.binance_coins)
+                text = "Binance",
+                icon = ft.Icons.ACCOUNT_BALANCE,
+                content = ItemsList(balance.binance_coins)
             ),
             ft.Tab(
-                text="Poloniex",
-                icon=ft.icons.ACCOUNT_BALANCE,
-                content=ItemsList(balance.poloniex_coins)
+                text = "Poloniex",
+                icon = ft.Icons.ACCOUNT_BALANCE,
+                content = ItemsList(balance.poloniex_coins)
             )
         ]

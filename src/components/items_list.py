@@ -13,21 +13,23 @@ class ItemsText(ft.Text):
         if color:
             self.color = color
 
+
 class ItemsTextField(ft.TextField):
     def __init__(self, label, text):
         super().__init__()
         self.label = label
-        self.label_style = ft.TextStyle(color=ft.colors.WHITE70, overflow=ft.TextOverflow.ELLIPSIS, size=17)
+        self.label_style = ft.TextStyle(color=ft.Colors.WHITE70, overflow=ft.TextOverflow.ELLIPSIS, size=17)
         self.value = text
         self.disabled = True
         self.border = ft.InputBorder.NONE
-        self.color = ft.colors.WHITE
-        self.border_color = ft.colors.WHITE
+        self.color = ft.Colors.WHITE
+        self.border_color = ft.Colors.WHITE
         self.height = 27
         self.content_padding = ft.padding.all(1)
         self.expand = True
         self.multiline = False
         self.max_lines = 1
+
 
 class ItemsExpansion(ft.ExpansionTile):
     def __init__(self, asset: Coin, count: int):
@@ -36,12 +38,12 @@ class ItemsExpansion(ft.ExpansionTile):
         _amount = f'{asset.amount:,.08f}'
         _uss_value = f'{asset.uss_value:,.02f}' if asset.uss_value > 0 else "-"
         _variation = asset.get_variation_uss() if asset.uss_value > 0 else "-"
-        _color = ft.colors.LIGHT_GREEN_ACCENT_700 if asset.get_variation_uss() != "-" and float(asset.get_variation_uss().replace(" %", "")) >= 0 else ft.colors.RED_500
+        _color = ft.Colors.LIGHT_GREEN_ACCENT_700 if asset.get_variation_uss() != "-" and float(asset.get_variation_uss().replace(" %", "")) >= 0 else ft.Colors.RED_500
 
         self.initially_expanded = False
-        self.collapsed_text_color = ft.colors.WHITE
-        self.text_color = ft.colors.BLUE_200
-        self.bgcolor = ft.colors.PRIMARY_CONTAINER
+        self.collapsed_text_color = ft.Colors.WHITE
+        self.text_color = ft.Colors.BLUE_200
+        self.bgcolor = ft.Colors.PRIMARY_CONTAINER
         self.min_tile_height = 1
         self.show_trailing_icon = False
         self.title = ft.Row(
@@ -68,9 +70,9 @@ class ItemsExpansion(ft.ExpansionTile):
 
         return [
             ft.ListTile(
-                min_vertical_padding=1,
-                min_height=1,
-                title=ft.Row(
+                min_vertical_padding = 1,
+                min_height = 1,
+                title = ft.Row(
                     controls = [
                         ItemsTextField("Poloniex", _pol_amount),
                         ItemsTextField("Initial Amount", _init_amount),
@@ -80,7 +82,7 @@ class ItemsExpansion(ft.ExpansionTile):
                 )
             ),
             ft.ListTile(
-                title=ft.Row(
+                title = ft.Row(
                     controls = [
                         ItemsTextField("Binance", _bin_amount),
                         ItemsTextField("Price", _price),
@@ -99,19 +101,20 @@ class ItemsExpansion(ft.ExpansionTile):
             # )
         ]
 
-class ItemsListContent:
-    @staticmethod
-    def content(coins):
-        return [ft.ListView(
-            expand=1,
-            controls=[
-                ItemsExpansion(asset, count)
-                for count, asset in enumerate(coins, start = 1)
-            ]
-        )]
 
 class ItemsList(ft.Column):
     def __init__(self, coins):
         super().__init__()
         self.spacing = 0
-        self.controls = ItemsListContent.content(coins)
+        self.controls = self.update_list(coins)
+
+    def update_list(self, coins):
+        return [
+            ft.ListView(
+                expand = 1,
+                controls = [
+                    ItemsExpansion(asset, count)
+                    for count, asset in enumerate(coins, start = 1)
+                ]
+            )
+        ]

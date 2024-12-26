@@ -6,6 +6,6 @@ class BalanceUpdate:
         balance = Balance()
 
         page.overview.update_content(balance)
-        page.customtabs.update_tabs(balance.coins)
+        page.customtabs.update_tabs(balance)
 
         page.update()
