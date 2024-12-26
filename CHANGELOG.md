@@ -1,8 +1,16 @@
 # Changelog
 
+## 1.4.1
+
+Fix:
+
+- adjust the alignment and style of the text that I broke in the Flet update
+- adjustment of some notes in the changelog
+
+
 ## 1.4.0
 
-Features:
+Fix:
 
 - code adjustment to meet the standards of the new version of Flet 0.25.2
 
@@ -11,8 +19,11 @@ Features:
 
 Features:
 
-- improved position of the home page button
 - added list of coins in the Poloniex and Binance tabs (still needs some tweaking)
+
+Fix:
+
+- improved position of the home page button
 
 
 ## 1.3.1

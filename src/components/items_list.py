@@ -1,6 +1,6 @@
 import flet as ft
 from src.services.balance.coin import Coin
-from src.services.utils import Utils
+from src.services.utils import Utils, TwoLineText
 
 class ItemsText(ft.Text):
     def __init__(self, text, color=None):
@@ -9,26 +9,9 @@ class ItemsText(ft.Text):
         self.expand = 1
         self.no_wrap = True
         self.overflow = ft.TextOverflow.ELLIPSIS
-        self.size = 14
+        self.size = 16
         if color:
             self.color = color
-
-
-class ItemsTextField(ft.TextField):
-    def __init__(self, label, text):
-        super().__init__()
-        self.label = label
-        self.label_style = ft.TextStyle(color=ft.Colors.WHITE70, overflow=ft.TextOverflow.ELLIPSIS, size=17)
-        self.value = text
-        self.disabled = True
-        self.border = ft.InputBorder.NONE
-        self.color = ft.Colors.WHITE
-        self.border_color = ft.Colors.WHITE
-        self.height = 27
-        self.content_padding = ft.padding.all(1)
-        self.expand = True
-        self.multiline = False
-        self.max_lines = 1
 
 
 class ItemsExpansion(ft.ExpansionTile):
@@ -70,27 +53,34 @@ class ItemsExpansion(ft.ExpansionTile):
 
         return [
             ft.ListTile(
-                min_vertical_padding = 1,
+                min_vertical_padding = 5,
                 min_height = 1,
+                dense = True,
+                bgcolor = ft.Colors.PRIMARY_CONTAINER,
                 title = ft.Row(
                     controls = [
-                        ItemsTextField("Poloniex", _pol_amount),
-                        ItemsTextField("Initial Amount", _init_amount),
-                        ItemsTextField("Initial USS", _init_uss),
-                        ItemsTextField("Initial BTC", _init_btc)
+                        TwoLineText("Poloniex", _pol_amount),
+                        TwoLineText("Initial Amount", _init_amount),
+                        TwoLineText("Initial USS", _init_uss),
+                        TwoLineText("Initial BTC", _init_btc)
                     ]
                 )
             ),
             ft.ListTile(
+                min_vertical_padding = 5,
+                min_height = 1,
+                dense = True,
+                bgcolor = ft.Colors.PRIMARY_CONTAINER,
                 title = ft.Row(
                     controls = [
-                        ItemsTextField("Binance", _bin_amount),
-                        ItemsTextField("Price", _price),
-                        ItemsTextField("R$", _brl_value),
-                        ItemsTextField("BTC Value Variation", _btc_variation)
+                        TwoLineText("Binance", _bin_amount),
+                        TwoLineText("Price", _price),
+                        TwoLineText("R$", _brl_value),
+                        TwoLineText("BTC Value Variation", _btc_variation)
                     ]
                 )
-            )
+            ),
+            ft.Divider(height=6, color=ft.Colors.PRIMARY_CONTAINER)
             # ft.ListTile(
             #     title=ft.Row(
             #         controls = [

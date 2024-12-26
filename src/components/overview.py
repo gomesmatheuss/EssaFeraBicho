@@ -1,12 +1,11 @@
 import flet as ft
-from src.services.utils import CustomTextField
+from src.services.utils import TwoLineText
 
 class Overview(ft.ExpansionTile):
     def __init__(self, balance):
         super().__init__("")
         self.initially_expanded = False
         self.collapsed_text_color = ft.Colors.WHITE
-        self.text_color = ft.Colors.BLUE_200
         self.min_tile_height = 1
         self.update_content(balance)
 
@@ -14,54 +13,57 @@ class Overview(ft.ExpansionTile):
         self.title = ft.Row(
             alignment = ft.MainAxisAlignment.START,
             controls = [
-                CustomTextField("Total - BTC", f"{balance.btc_value:,.08f}"),
-                CustomTextField("Total - USD", f"{balance.uss_value:,.02f}"),
-                CustomTextField("Total - R$", f"{balance.brl_value:,.02f}"),
-                CustomTextField("Updated", f"{balance.last_update[11:19]}")
+                TwoLineText("Total - BTC", f"{balance.btc_value:,.08f}"),
+                TwoLineText("Total - USD", f"{balance.uss_value:,.02f}"),
+                TwoLineText("Total - R$", f"{balance.brl_value:,.02f}"),
+                TwoLineText("Updated", f"{balance.last_update[11:19]}")
             ]
         )
         self.controls = [
             ft.ListTile(
-                min_vertical_padding = 2,
+                min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
                 trailing = ft.Icon(None),
+                bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [
-                        CustomTextField("Poloniex - BTC", f"{balance.poloniex_btc_value:,.08f}"),
-                        CustomTextField("Poloniex - USD", f"{balance.poloniex_uss_value:,.02f}"),
-                        CustomTextField("Poloniex - R$", f"{balance.poloniex_brl_value:,.02f}"),
-                        CustomTextField("", "")
+                        TwoLineText("Poloniex - BTC", f"{balance.poloniex_btc_value:,.08f}"),
+                        TwoLineText("Poloniex - USD", f"{balance.poloniex_uss_value:,.02f}"),
+                        TwoLineText("Poloniex - R$", f"{balance.poloniex_brl_value:,.02f}"),
+                        TwoLineText("", "")
                     ]
                 )
             ),
             ft.ListTile(
-                min_vertical_padding = 2,
+                min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
                 trailing = ft.Icon(None),
+                bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [
-                        CustomTextField("Binance - BTC", f"{balance.binance_btc_value:,.08f}"),
-                        CustomTextField("Binance - USD", f"{balance.binance_uss_value:,.02f}"),
-                        CustomTextField("Binance - R$", f"{balance.binance_brl_value:,.02f}"),
-                        CustomTextField("", "")
+                        TwoLineText("Binance - BTC", f"{balance.binance_btc_value:,.08f}"),
+                        TwoLineText("Binance - USD", f"{balance.binance_uss_value:,.02f}"),
+                        TwoLineText("Binance - R$", f"{balance.binance_brl_value:,.02f}"),
+                        TwoLineText("", "")
                     ]
                 )
             ),
             ft.ListTile(
-                min_vertical_padding = 2,
+                min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
                 trailing = ft.Icon(None),
+                bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [
-                        CustomTextField("BTC - USD", f"{balance.btcuss_value:,.02f}"),
-                        CustomTextField("USD - BRL", f"{balance.ussbrl_value:,.02f}"),
-                        CustomTextField("", ""),
-                        CustomTextField("", "")
+                        TwoLineText("BTC - USD", f"{balance.btcuss_value:,.02f}"),
+                        TwoLineText("USD - BRL", f"{balance.ussbrl_value:,.02f}"),
+                        TwoLineText("", ""),
+                        TwoLineText("", "")
                     ]
                 )
             ),
-            ft.Divider(height=10, color=ft.Colors.ON_SECONDARY)
+            ft.Divider(height=6, color=ft.Colors.ON_SECONDARY)
         ]

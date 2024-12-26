@@ -7,7 +7,7 @@ class NavbarTitle(ft.Column):
         self.controls = [
             ft.Container(
                 content = ft.Text(
-                    "Poloniex and Binance",
+                    "Wallet",
                     size = 22,
                     weight = ft.FontWeight.BOLD,
                     no_wrap = True,

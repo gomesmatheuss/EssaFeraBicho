@@ -12,18 +12,56 @@ class Utils:
         return f"{number:,.0{new_dec_num}f}"
 
 
-class CustomTextField(ft.TextField):
+class TwoLineText(ft.Column):
     def __init__(self, label, text):
         super().__init__()
-        self.label = label
-        self.label_style = ft.TextStyle(color=ft.Colors.WHITE60, overflow=ft.TextOverflow.ELLIPSIS, size=17)
+        self.spacing = 0
+        self.expand = 1
+        self.controls = [
+            ft.Row(
+                height = 13,
+                expand = 1,
+                controls = [
+                    ft.Container(
+                        padding = ft.padding.only(top=-6),
+                        expand = 1,
+                        content = ft.Text(
+                            value = label,
+                            color = ft.Colors.WHITE60,
+                            max_lines = 1,
+                            overflow = ft.TextOverflow.ELLIPSIS,
+                            no_wrap = True,
+                            size = 12
+                        )
+                    )
+                ]
+            ),
+            ft.Row(
+                height = 15,
+                expand = 1,
+                controls = [
+                    ft.Container(
+                        padding = ft.padding.only(top=-6),
+                        expand = 1,
+                        content = ft.Text(
+                            value = text,
+                            max_lines = 1,
+                            overflow = ft.TextOverflow.ELLIPSIS,
+                            no_wrap = True,
+                            size = 16
+                        )
+                    )
+                ]
+            )
+        ]
+
+
+class CustomText(ft.Text):
+    def __init__(self, text, color=ft.Colors.PRIMARY):
+        super().__init__()
         self.value = text
-        self.disabled = True
-        self.border = ft.InputBorder.NONE
-        self.color = ft.Colors.WHITE
-        self.border_color = ft.Colors.WHITE
-        self.height = 36
-        self.content_padding = ft.padding.only(top=2, bottom=5, left=0, right=2)
-        self.expand = True
-        self.multiline = False
-        self.max_lines = 1
+        self.expand = 1
+        self.no_wrap = True
+        self.overflow = ft.TextOverflow.ELLIPSIS
+        self.size = 16
+        self.color = color
