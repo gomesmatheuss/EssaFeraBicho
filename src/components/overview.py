@@ -7,6 +7,7 @@ class Overview(ft.ExpansionTile):
         self.initially_expanded = False
         self.collapsed_text_color = ft.Colors.WHITE
         self.min_tile_height = 1
+        self.show_trailing_icon = False
         self.update_content(balance)
 
     def update_content(self, balance):
@@ -24,7 +25,7 @@ class Overview(ft.ExpansionTile):
                 min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
-                trailing = ft.Icon(None),
+                # trailing = ft.Icon(None),
                 bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [
@@ -39,7 +40,7 @@ class Overview(ft.ExpansionTile):
                 min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
-                trailing = ft.Icon(None),
+                # trailing = ft.Icon(None),
                 bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [
@@ -54,7 +55,7 @@ class Overview(ft.ExpansionTile):
                 min_vertical_padding = 5,
                 min_height = 1,
                 dense = True,
-                trailing = ft.Icon(None),
+                # trailing = ft.Icon(None),
                 bgcolor = ft.Colors.ON_SECONDARY,
                 title = ft.Row(
                     controls = [

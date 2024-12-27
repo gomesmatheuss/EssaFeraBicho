@@ -8,7 +8,7 @@ class CustomTabs(ft.Tabs):
         self.selected_index = 0
         self.animation_duration = 300
         self.expand = 1
-        self.label_padding = ft.padding.only(top=-5, left=35, right=35)
+        self.label_padding = ft.padding.only(top=-5, left=20, right=20)
         self.update_tabs(balance)
 
     def update_tabs(self, balance: Balance):
@@ -16,17 +16,17 @@ class CustomTabs(ft.Tabs):
             ft.Tab(
                 tab_content = self.custom_tab_text("All", ft.Icons.ATTACH_MONEY_OUTLINED),
                 content = ItemsList(balance.coins),
-                height = 40
+                height = 30
             ),
             ft.Tab(
                 tab_content = self.custom_tab_text("Binance", ft.Icons.ACCOUNT_BALANCE),
                 content = ItemsList(balance.binance_coins),
-                height = 40
+                height = 30
             ),
             ft.Tab(
                 tab_content = self.custom_tab_text("Poloniex", ft.Icons.ACCOUNT_BALANCE),
                 content = ItemsList(balance.poloniex_coins),
-                height = 40
+                height = 30
             )
         ]
 
@@ -34,6 +34,6 @@ class CustomTabs(ft.Tabs):
         return ft.Row(
             controls = [
                 ft.Icon(icon),
-                ft.Text(text, size=16)
+                ft.Text(text, size=12)
             ]
         )

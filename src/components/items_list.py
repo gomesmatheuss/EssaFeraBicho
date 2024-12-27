@@ -9,7 +9,7 @@ class ItemsText(ft.Text):
         self.expand = 1
         self.no_wrap = True
         self.overflow = ft.TextOverflow.ELLIPSIS
-        self.size = 16
+        self.size = 12
         if color:
             self.color = color
 

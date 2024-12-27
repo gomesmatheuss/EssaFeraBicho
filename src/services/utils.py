@@ -19,7 +19,7 @@ class TwoLineText(ft.Column):
         self.expand = 1
         self.controls = [
             ft.Row(
-                height = 13,
+                height = 10,
                 expand = 1,
                 controls = [
                     ft.Container(
@@ -31,13 +31,13 @@ class TwoLineText(ft.Column):
                             max_lines = 1,
                             overflow = ft.TextOverflow.ELLIPSIS,
                             no_wrap = True,
-                            size = 12
+                            size = 9
                         )
                     )
                 ]
             ),
             ft.Row(
-                height = 15,
+                height = 12,
                 expand = 1,
                 controls = [
                     ft.Container(
@@ -46,9 +46,9 @@ class TwoLineText(ft.Column):
                         content = ft.Text(
                             value = text,
                             max_lines = 1,
-                            overflow = ft.TextOverflow.ELLIPSIS,
+                            # overflow = ft.TextOverflow.ELLIPSIS,
                             no_wrap = True,
-                            size = 16
+                            size = 13
                         )
                     )
                 ]
@@ -63,5 +63,5 @@ class CustomText(ft.Text):
         self.expand = 1
         self.no_wrap = True
         self.overflow = ft.TextOverflow.ELLIPSIS
-        self.size = 16
+        self.size = 13
         self.color = color
