@@ -57,11 +57,13 @@ class TwoLineText(ft.Column):
 
 
 class CustomText(ft.Text):
-    def __init__(self, text, color=ft.Colors.PRIMARY):
+    def __init__(self, text, color=None, text_align=ft.TextAlign.RIGHT):
         super().__init__()
         self.value = text
         self.expand = 1
         self.no_wrap = True
         self.overflow = ft.TextOverflow.ELLIPSIS
         self.size = 16
-        self.color = color
+        self.text_align = text_align
+        if color:
+            self.color = color

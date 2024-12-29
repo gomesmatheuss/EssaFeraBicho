@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.2
+
+Features:
+
+- changed the alignment of the text in the list of currencies
+- change collapsed text color in Expansion Tile
+- added header from Coins List
+
+
 ## 1.4.1
 
 Fix:

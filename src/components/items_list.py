@@ -1,17 +1,23 @@
 import flet as ft
 from src.services.balance.coin import Coin
-from src.services.utils import Utils, TwoLineText
+from src.services.utils import Utils, TwoLineText, CustomText
 
-class ItemsText(ft.Text):
-    def __init__(self, text, color=None):
+class CustomHeaderText(ft.Text):
+    def __init__(self, 
+                 text, 
+                 color=ft.Colors.WHITE, 
+                 text_align=ft.TextAlign.RIGHT,
+                 size=16,
+                 weight=ft.FontWeight.NORMAL):
         super().__init__()
         self.value = text
         self.expand = 1
         self.no_wrap = True
         self.overflow = ft.TextOverflow.ELLIPSIS
-        self.size = 16
-        if color:
-            self.color = color
+        self.size = size
+        self.color = color
+        self.text_align = text_align
+        self.weight = weight
 
 
 class ItemsExpansion(ft.ExpansionTile):
@@ -25,16 +31,16 @@ class ItemsExpansion(ft.ExpansionTile):
 
         self.initially_expanded = False
         self.collapsed_text_color = ft.Colors.WHITE
-        self.text_color = ft.Colors.BLUE_200
+        self.text_color = ft.Colors.PRIMARY
         self.bgcolor = ft.Colors.PRIMARY_CONTAINER
         self.min_tile_height = 1
         self.show_trailing_icon = False
         self.title = ft.Row(
             controls = [
-                ItemsText(_asset),
-                ItemsText(Utils.format_big_numbers(_amount, 8)),
-                ItemsText(_uss_value),
-                ItemsText(_variation, _color)
+                CustomText(_asset, text_align=ft.TextAlign.LEFT),
+                CustomText(Utils.format_big_numbers(_amount, 8)),
+                CustomText(_uss_value),
+                CustomText(_variation, _color)
             ]
         )
         self.controls = self.ItemsListTile(asset)
@@ -98,8 +104,25 @@ class ItemsList(ft.Column):
         self.spacing = 0
         self.controls = self.update_list(coins)
 
+    def header(self):
+        return ft.Container(
+            padding = 5,
+            bgcolor = ft.Colors.SECONDARY_CONTAINER,
+            content = ft.Row(
+                controls = [
+                    ft.VerticalDivider(width=2),
+                    CustomHeaderText("Coin", text_align=ft.TextAlign.LEFT, size=20, weight=ft.FontWeight.BOLD),
+                    CustomHeaderText("Amount", size=20, weight=ft.FontWeight.BOLD),
+                    CustomHeaderText("USS", size=20, weight=ft.FontWeight.BOLD),
+                    CustomHeaderText("Variation", size=20, weight=ft.FontWeight.BOLD),
+                    ft.VerticalDivider(width=8)
+                ]
+            )
+        )
+
     def update_list(self, coins):
         return [
+            self.header(),
             ft.ListView(
                 expand = 1,
                 controls = [

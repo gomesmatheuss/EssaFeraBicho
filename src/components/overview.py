@@ -50,6 +50,7 @@ class Overview(ft.ExpansionTile):
                     ]
                 )
             ),
+            ft.Divider(height=5),
             ft.ListTile(
                 min_vertical_padding = 5,
                 min_height = 1,
@@ -65,5 +66,5 @@ class Overview(ft.ExpansionTile):
                     ]
                 )
             ),
-            ft.Divider(height=6, color=ft.Colors.ON_SECONDARY)
+            ft.Divider(height=4, color=ft.Colors.ON_SECONDARY)
         ]

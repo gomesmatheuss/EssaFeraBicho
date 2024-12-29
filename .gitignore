@@ -169,5 +169,6 @@ temp_binance_balance.json
 temp_binance_prices.json
 temp_poloniex_balance.json
 temp_poloniex_prices.json
+storage/
 
 todo.md

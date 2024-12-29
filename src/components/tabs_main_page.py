@@ -8,7 +8,7 @@ class CustomTabs(ft.Tabs):
         self.selected_index = 0
         self.animation_duration = 300
         self.expand = 1
-        self.label_padding = ft.padding.only(top=-5, left=35, right=35)
+        self.label_padding = ft.padding.only(top=-5, left=55, right=55)
         self.update_tabs(balance)
 
     def update_tabs(self, balance: Balance):

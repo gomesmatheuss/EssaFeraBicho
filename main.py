@@ -10,7 +10,7 @@ def main(page: ft.Page):
 
     page.window.width = 1080 #480
     page.window.height = 900 #720
-    page.window.min_width = 400 #720    
+    page.window.min_width = 400 #720
 
     navbar = Navbar()
     button = InitialPage()
